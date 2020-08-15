@@ -1,0 +1,23 @@
+
+
+type Movie {
+		id: ID!,
+		originaltitle: String,
+		budget: Int,
+		runtime: Int,
+		originallanguage: String,
+		releasedate: String
+}
+
+type Query {
+		movies:[Movie]
+		movie(id: ID):Movie
+		findByTitle(title: String):[Movie]
+		findByYear(year: Int):[Movie]
+}
+
+type Mutation {
+	createMovie(originaltitle: String!, budget: Int!, runtime: Int!, originallanguage: String!, releasedate: String!):Movie
+	deleteMovie(id: ID!):Boolean
+	updateMovie(id: ID!, originaltitle: String!, budget: Int!, runtime: Int!, originallanguage: String!, releasedate: String!):Movie
+}
